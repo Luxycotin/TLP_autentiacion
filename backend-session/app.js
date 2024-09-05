@@ -50,7 +50,7 @@ app.post('/login', (req, res) => {
         req.session.username = user.username;
 
         return res.json({ 
-            message: 'Inicio de sesión exitoso', 
+            message: 'Se ha concretado el inisio de sesión', 
             user: { id: user.id, username: user.username } });
     } else {
         return res.status(401).json({ message: 'Credenciales incorrectas' });
@@ -64,7 +64,7 @@ app.get('/session', (req, res) => {
             loggedIn: true, 
             user: { id: req.session.userId, username: req.session.username } });
     } else {
-        return res.status(401).json({ loggedIn: false, message: 'No hay sesión activa' });
+        return res.status(401).json({ loggedIn: false, message: 'No hay una sesión activa actualemnte' });
     }
 });
 
