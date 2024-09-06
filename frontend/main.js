@@ -12,7 +12,7 @@
         document.getElementById('user-name').innerText = data.user.username;
     } else {
         // Redirigir al usuario a la página de inicio de sesión
-        window.location.href = 'index.html';
+        // window.location.h ref = 'index.html';
     }
 })();
 
