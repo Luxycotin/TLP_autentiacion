@@ -1,25 +1,25 @@
-export const database = 
-    {
-        user: [
-            {
-                id: 1,
-                username: 'admin',
-                password: 'admin'
-            },
-            {
-                id: 2,
-                username: 'user',
-                password: 'user'
-            },
-            {
-                id: 3,
-                username: 'guest',
-                password: 'guest'
-            },
-            {
-                id: 4,
-                username: 'guest2',
-                password: 'guest2'
-            }
-        ]
-    }
+import { createPool } from "mysql2/promise";
+import {
+  DB_HOST,
+  DB_NAME,
+  DB_PASSWORD,
+  DB_PORT,
+  DB_USER,
+} from "../config/env.js";
+const createMyPool = (async) => {
+  try {
+    const pool = createPool({
+      host: DB_HOST,
+      user: DB_USER,
+      database: DB_NAME,
+      port: DB_PORT,
+    });
+
+    return pool;
+  } catch (error) {
+    console.log("Hubo un error al conectar con la base de datos");
+  }
+};
+const conn = createMyPool();
+
+export { conn };
