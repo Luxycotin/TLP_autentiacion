@@ -79,5 +79,9 @@ app.post('/logout', (req, res) => {
         return res.json({ message: 'Sesión cerrada exitosamente' });
     });
 });
+app.post('/register', (req, res)=>{
+    console.log(req.session)
+    
+})
 
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}/`));
